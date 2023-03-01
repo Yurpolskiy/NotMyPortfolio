@@ -1,0 +1,17 @@
+.footer {
+  padding: 0 0 rem(30) 0;
+  background: $whiteColor;
+  // .footer__container
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+  }
+  &__copyrights {
+    font-size: $paragraphFontSize - 2px;
+    text-align: center;
+    color: $primaryFontColor;
+    margin-top: rem(26);
+  }
+}

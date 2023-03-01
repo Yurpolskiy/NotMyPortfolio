@@ -1,0 +1,119 @@
+// =====================================================================================================================
+.header {
+  width: 100%;
+  &.sticky {
+    // ..стили для липкого хедера
+  }
+  // .header__container
+  &__container-n {
+    height: rem($headerHeight);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+.nav {
+  a {
+    font-weight: $linkFontWeight;
+  }
+  @include media(767) {
+    display: none;
+  }
+  margin-right: 10px;
+}
+// =====================================================================================================================
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  z-index: 1000;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+  }
+  &__item {
+    margin: 0 10px;
+    font-weight: $linkFontWeight;
+  }
+}
+
+.burger {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  &__line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: $blackColor;
+    border-radius: 3px;
+    transition: all .3s ease;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 8px;
+    }
+
+    &:nth-child(3) {
+      top: 16px;
+    }
+  }
+    &.active {
+      span:nth-child(1) {
+      top: 8px;
+      transform: rotate(45deg);
+    }
+      span:nth-child(2) {
+        opacity: 0;
+    }
+      span:nth-child(3) {
+        top: 8px;
+        transform: rotate(-45deg);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    height: auto;
+    justify-content: flex-end;
+    align-items: center;
+    &__list {
+      justify-content: flex-start;
+      align-items: flex-start;
+      transition: .4s all ease;
+      opacity: 0;
+      margin-right: 20px;
+    }
+    &__item {
+      margin: 10px 0;
+    }
+    &-open, &__list {
+      display: flex;
+    }
+  }
+}
+
+.menu {
+  @include adaptive_after(768px) {
+    display: none;
+  }
+}

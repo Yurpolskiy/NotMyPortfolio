@@ -1,0 +1,27 @@
+.blog {
+  margin: 0 auto;
+  @include adaptiveClamp(width, 620, 339, 1152, 375, 1);
+  padding-bottom: 40px;
+  &__title {
+    @include adaptiveClamp(margin-bottom, 55, 35, 1152, 375, 1);
+    @include adaptiveClamp(margin-top, 55, 25, 1152, 375, 1);
+  }
+  &__unit {
+    border-bottom: 1px solid $grayColor;
+    @include media(767) {
+      text-align: center;
+      p {
+        margin: 0 auto;
+      }
+    }
+    &-data {
+      font-size: $paragraphFontSize + 4px;
+    }
+    @include adaptiveClamp(padding-bottom, 29, 17, 1152, 375, 1);
+    @include adaptiveClamp(margin-bottom, 32, 50, 1152, 375, 1);
+    &-data {
+      display: inline-block;
+      margin: 16px 0 15px 0;
+    }
+  }
+}

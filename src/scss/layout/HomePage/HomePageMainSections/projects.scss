@@ -1,0 +1,55 @@
+.projects {
+  &__container {
+    @include adaptiveClamp(padding-top, 67, 35, 1152, 375, 1);
+    @include adaptiveClamp(padding-bottom, 87, 40, 1152, 375, 1);
+  }
+    &__unit {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      border-bottom: 1px solid grey;
+      @include adaptiveClamp(padding-top, 25, 30, 1152, 375, 1);
+      @include adaptiveClamp(padding-bottom, 17, 15, 1152, 375, 1);
+      @include media(767) {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      &-img {
+        margin-bottom: 17px;
+      }
+      &-article {
+        margin-left: 5px;
+      }
+      &-date {
+        background-color: #142850;
+        width: 62px;
+        padding-top: 5px;
+        display: inline-block;
+        text-align: center;
+        height: 25px;
+        border-radius: 16px;
+        color: $whiteColor;
+        font-weight: $dataFontWeight;
+        margin: 0 15px 22px 0;
+      }
+      &-title {
+        margin-bottom: 20px;
+      }
+    }
+
+    &:nth-child(2) {
+      @include adaptiveClamp(margin-bottom, 31, 20, 1152, 375, 1);
+      @include adaptiveClamp(margin-top, 31, 20, 1152, 375, 1);
+    }
+
+    &-description {
+      @include adaptiveClamp(width, 594, 344, 1152, 375, 1);
+    }
+    &-img {
+      @include adaptiveClamp(width, 339, 246, 1152, 375);
+      @include adaptiveClamp(height, 230, 180, 1152, 375);
+    }
+}

@@ -1,12 +1,12 @@
 import toggleBodyLock from './../helpers/toggleBodyLock'
 import { html, firstScreen, header, burgerButton } from './../helpers/elementsNodeList'
 
-// logger (Full Logging System) ==========================================================================
+// logger (Full Logging System) =================================================================================================================
 function FLS(message) {
   setTimeout(() => (window.FLS ? console.log(message) : null), 0)
 }
 
-// Проверка браузера на поддержку .webp изображений ======================================================
+// Проверка браузера на поддержку .webp изображений =================================================================================================================
 function isWebp() {
   // Проверка поддержки webp
   const testWebp = (callback) => {
@@ -69,7 +69,7 @@ function setHash(hash) {
   history.pushState('', '', hash)
 }
 
-// Функция для фиксированной шапки при скролле ===========================================================
+// Функция для фиксированной шапки при скролле =================================================================================================================
 function headerFixed() {
   const headerStickyObserver = new IntersectionObserver(([entry]) => {
     header.classList.toggle('sticky', !entry.isIntersecting)
@@ -80,7 +80,7 @@ function headerFixed() {
   }
 }
 
-// Универсальная функция для открытия и закрытия попапо ==================================================
+// Универсальная функция для открытия и закрытия попапо =================================================================================================================
 const togglePopupWindows = () => {
   document.addEventListener('click', ({ target }) => {
     if (target.closest('[data-type]')) {
@@ -98,7 +98,10 @@ const togglePopupWindows = () => {
       toggleBodyLock(true)
     }
 
-    if (target.classList.contains('_overlay-bg') || target.closest('.button-close')) {
+    if (
+      target.classList.contains('_overlay-bg') ||
+      target.closest('.button-close')
+    ) {
       const popup = target.closest('._overlay-bg')
 
       popup.classList.remove('_is-open')
@@ -107,7 +110,7 @@ const togglePopupWindows = () => {
   })
 }
 
-// Модуль работы с меню (бургер) =========================================================================
+// Модуль работы с меню (бургер) =======================================================================================================================================================================================================================
 const menuInit = () => {
   if (burgerButton) {
     document.addEventListener('click', ({ target }) => {
@@ -125,6 +128,32 @@ const menuOpen = () => {
 const menuClose = () => {
   toggleBodyLock(false)
   html.classList.remove('menu-open')
+}
+
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
+const menuList = document.querySelector('.menu__list');
+
+burger.addEventListener('click', () => {
+  menu.classList.toggle('menu-open');
+  if(menu.classList.contains('menu-open')) {
+    menuList.style.opacity = 1
+    burger.classList.add('active')
+  } else {
+    menuList.style.opacity = 0
+    burger.classList.remove('active')
+  }
+
+});
+
+const currentPageUrl = window.location.pathname
+
+const pageLinks = document.querySelectorAll('.page-link')
+for(let i = 0; i < pageLinks.length; i++) {
+  const linkUrl = pageLinks[i].getAttribute('href')
+  if(linkUrl === currentPageUrl) {
+    pageLinks[i].classList.add('active')
+  }
 }
 
 export {

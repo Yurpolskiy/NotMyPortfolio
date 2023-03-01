@@ -10,22 +10,27 @@ body {
 // Стили для полноэкранного блока:
 // @import "fullscreen";
 
-// Стили основного ограничивающего контейнера =================================
+// Стили основного ограничивающего контейнера ========================================================================
 /*
 * (i) Стили будут применяться ко 
 * всем классам содержащим *__container
 * Например header__container, main__container и т.д.
 */
 [class*="__container"] {
-  max-width: rem($containerWidth + $mainOffset * 2);
+  margin: 0 auto;
+  @include adaptiveClamp(max-width, 856, 745, 1152, 768, 1);
+  padding: 0 rem($mainOffset);
+}
+[class*="__container-n"] {
+  max-width: ($containerWidth + $mainOffset * 2);
   margin: 0 auto;
   padding: 0 rem($mainOffset);
 }
-// Стили отзывчивых картинок (IBG) ============================================
+// Стили отзывчивых картинок (IBG) ===================================================================================
 [class*="-ibg"] {
-  position: relative;
+	position: relative;
 	img {
-    position: absolute;
+		position: absolute;
 		width: 100%;
 		height: 100%;
 		top: 0;
@@ -33,12 +38,23 @@ body {
 		object-fit: cover;
 	}
 }
+[class*="__btn"] {
+  @include adaptiveClamp(width, 208, 178, 1152, 375, 1);
+  height: rem(47);
+  background: $btnBgColor;
+  font-weight: $btnFontWeight;
+  font-size: $linkFontSize;
+  color: $whiteColor;
+  a {
+    color: $whiteColor;
+  }
+}
 [class*="-ibg_contain"] {
-  img {
-    object-fit: contain;
+	img {
+		object-fit: contain;
 	}
 }
-// Стили для обертки модальных окон ===========================================
+// Стили для обертки модальных окон ==================================================================================
 [class*="_overlay-bg"] {
   position: fixed;
   top: 0;
@@ -61,7 +77,7 @@ body {
     visibility: visible;
   }
 }
-// Оболочка ===================================================================
+// Оболочка ===========================================================================================================
 .wrapper {
   display: flex;
   flex-direction: column;

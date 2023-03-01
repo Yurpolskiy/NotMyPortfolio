@@ -1,0 +1,41 @@
+.review {
+  padding: 60px 0 38px 0;
+  background: $reviewsSectionBackgroundColor;
+  &__container {
+    padding: 0;
+  }
+  &__flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @include media(767) {
+      flex-direction: column;
+    }
+  }
+  &__upper-title {
+    @include media(767) {
+      text-align: center;
+    }
+  }
+  &__skills {
+    @include adaptiveClamp(width, 416, 360, 1152, 768, 2);
+    padding: 24px 21px 20px;
+    box-sizing: border-box;
+    text-align: left;
+    background: $whiteColor;
+    &-units {
+      margin: 17px 0 11px 0;
+    }
+    &-description {
+      @include adaptiveClamp(width, 368, 314, 1152, 375, 1);
+    }
+  }
+  @include media(768) {
+    &__skills_upper-title {
+      text-align: center;
+    }
+    &__skills:nth-child(1) {
+      margin: 17px 0 20px 0;
+    }
+  }
+}

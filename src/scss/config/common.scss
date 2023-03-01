@@ -1,1 +1,64 @@
 // Заголовки, общие БЄМ блоки и проче...
+ul {
+  display: flex;
+  gap: 33px;
+}
+
+a {
+  font-size: $linkFontSize;
+}
+
+h1 {
+  @include adaptiveClamp(font-size, 44, 35, 1156, 375, 1);
+  font-weight: $titleFontWeight;
+  @include adaptiveClamp(line-height, 60, 45, 1152, 375, 1);
+  @include adaptiveClamp(width, 442, 330, 1152, 375, 1);
+  @include media(767) {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+h2 {
+  @include adaptiveClamp(font-size, 30, 24, 1152, 375, 1);
+  font-weight: $titleFontWeight;
+}
+
+h3 {
+  @include adaptiveClamp(font-size, 26, 22, 1152, 375, 1);
+  @include adaptiveClamp(margin-bottom, 17, 12, 1152, 375, 1);
+  @include adaptiveClamp(width, 374, 327, 1152, 375, 1);
+  @include adaptiveClamp(line-height, 38, 30, 1152, 375, 1);
+  font-weight: $titleFontWeight;
+}
+
+h4 {
+  @include adaptiveClamp(font-size, 22, 18, 1152, 375, 1);
+  font-weight: $paragraphFontWeight;
+  padding-left: $mainOffset + 15px;
+  @include media(768) {
+    text-align: center;
+  }
+}
+
+p {
+  font-size: $paragraphFontSize;
+  font-weight: $paragraphFontWeight;
+  line-height: 24px;
+}
+
+.light {
+  color: $lightColor;
+  font-size: $spanFontSize;
+}
+
+.header {
+  a:hover {
+    color: $btnBgColor;
+  }
+}
+.active {
+  color: $btnBgColor;
+}
+.line {
+  margin: 0 10px;
+}
